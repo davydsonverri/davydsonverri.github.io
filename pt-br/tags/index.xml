@@ -2,10 +2,46 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Davydson Verri Blog</title>
-    <link>https://davydsonverri.github.io/pt-br/tags/</link>
+    <link>http://localhost:8080/pt-br/tags/</link>
     <description>Recent content in Tags on Davydson Verri Blog</description>
     <generator>Hugo</generator>
     <language>pt-br</language>
-    <atom:link href="https://davydsonverri.github.io/pt-br/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 17 Apr 2025 06:13:33 -0300</lastBuildDate>
+    <atom:link href="http://localhost:8080/pt-br/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>DevOps</title>
+      <link>http://localhost:8080/pt-br/tags/devops/</link>
+      <pubDate>Thu, 17 Apr 2025 06:13:33 -0300</pubDate>
+      <guid>http://localhost:8080/pt-br/tags/devops/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Docker</title>
+      <link>http://localhost:8080/pt-br/tags/docker/</link>
+      <pubDate>Thu, 17 Apr 2025 06:13:33 -0300</pubDate>
+      <guid>http://localhost:8080/pt-br/tags/docker/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Filas</title>
+      <link>http://localhost:8080/pt-br/tags/filas/</link>
+      <pubDate>Thu, 17 Apr 2025 06:13:33 -0300</pubDate>
+      <guid>http://localhost:8080/pt-br/tags/filas/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Mensageria</title>
+      <link>http://localhost:8080/pt-br/tags/mensageria/</link>
+      <pubDate>Thu, 17 Apr 2025 06:13:33 -0300</pubDate>
+      <guid>http://localhost:8080/pt-br/tags/mensageria/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>RabbitMQ</title>
+      <link>http://localhost:8080/pt-br/tags/rabbitmq/</link>
+      <pubDate>Thu, 17 Apr 2025 06:13:33 -0300</pubDate>
+      <guid>http://localhost:8080/pt-br/tags/rabbitmq/</guid>
+      <description></description>
+    </item>
   </channel>
 </rss>
