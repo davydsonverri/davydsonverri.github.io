@@ -1,12 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Davydson Verri Blog</title>
-    <link>http://localhost:8080/</link>
-    <description>Recent content on Davydson Verri Blog</description>
-    <generator>Hugo</generator>
-    <language>pt-br</language>
-    <lastBuildDate></lastBuildDate>
-    <atom:link href="http://localhost:8080/index.xml" rel="self" type="application/rss+xml" />
-  </channel>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Davydson Verri</title>
+        <link>https://davys.tech/</link>
+        <description>20&#43; Years | Software Architect | Principal Engineer</description>
+        <generator>Hugo -- gohugo.io</generator><language>pt-br</language><lastBuildDate>Thu, 17 Apr 2025 06:13:33 -0300</lastBuildDate>
+            <atom:link href="https://davys.tech/index.xml" rel="self" type="application/rss+xml" />
+        </channel>
 </rss>
