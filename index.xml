@@ -5,5 +5,18 @@
         <description>20&#43; Years | Software Architect | Principal Engineer</description>
         <generator>Hugo -- gohugo.io</generator><language>pt-br</language><lastBuildDate>Thu, 17 Apr 2025 06:13:33 -0300</lastBuildDate>
             <atom:link href="https://davys.tech/index.xml" rel="self" type="application/rss+xml" />
-        </channel>
+        <item>
+    <title>Como Configurar RabbitMQ no Docker Compose com Filas, DLQs, Plugins e Segurança</title>
+    <link>https://davys.tech/posts/configurar-rabbitmq-docker-compose-filas-exchanges-dlq-plugins/</link>
+    <pubDate>Thu, 17 Apr 2025 06:13:33 -0300</pubDate>
+    <author>Davydson Verri</author>
+    <guid>https://davys.tech/posts/configurar-rabbitmq-docker-compose-filas-exchanges-dlq-plugins/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/configurar-rabbitmq-docker-compose-filas-exchanges-dlq-plugins.webp" referrerpolicy="no-referrer">
+            </div><h2 id="fa-regular-fa-compass-introdução"><i class="fa-regular fa-compass" aria-hidden="true"></i>&nbsp;Introdução</h2>
+<p>Recentemente, precisei rodar uma instância do <strong>RabbitMQ</strong> no meu ambiente local. O desafio era replicar fielmente o ambiente de produção, incluindo a configuração de <strong>virtual hosts, exchanges, filas, routing keys, bindings, usuários, permissões e plugins</strong>, para que eu pudesse simplesmente iniciar o desenvolvimento sem me preocupar com a infraestrutura.</p>
+<p>Para resolver isso com o Docker, criei um docker-compose que sobe uma instância do RabbitMQ já configurada com todos os recursos que a aplicação precisa.
+Assim, consigo simular o ambiente produtivo de forma realista e garantir que a aplicação funcione corretamente durante o desenvolvimento.</p>]]></description>
+</item>
+</channel>
 </rss>

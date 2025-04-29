@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Como Configurar RabbitMQ no Docker Compose com Filas, DLQs, Plugins e Segurança - Davydson Verri</title><meta name="Description" content="Aprenda a configurar uma instância completa do RabbitMQ com Docker Compose, incluindo filas, exchanges, DLQs, plugins e usuários prontos para uso."><meta property="og:url" content="https://davys.tech/posts/configurar-rabbitmq-docker-compose-filas-exchanges-dlq-plugins/">
+  <meta property="og:site_name" content="Davydson Verri">
+  <meta property="og:title" content="Como Configurar RabbitMQ no Docker Compose com Filas, DLQs, Plugins e Segurança">
+  <meta property="og:description" content="Aprenda a configurar uma instância completa do RabbitMQ com Docker Compose, incluindo filas, exchanges, DLQs, plugins e usuários prontos para uso.">
+  <meta property="og:locale" content="pt_br">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-04-17T06:13:33-03:00">
+    <meta property="article:modified_time" content="2025-04-17T06:13:33-03:00">
+    <meta property="article:tag" content="RabbitMQ">
+    <meta property="article:tag" content="Docker">
+    <meta property="article:tag" content="Mensageria">
+    <meta property="article:tag" content="Filas">
+    <meta property="article:tag" content="DevOps">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Como Configurar RabbitMQ no Docker Compose com Filas, DLQs, Plugins e Segurança">
+  <meta name="twitter:description" content="Aprenda a configurar uma instância completa do RabbitMQ com Docker Compose, incluindo filas, exchanges, DLQs, plugins e usuários prontos para uso.">
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site">
+<meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://davys.tech/posts/configurar-rabbitmq-docker-compose-filas-exchanges-dlq-plugins/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript></head>
+    <body data-header-desktop="normal" data-header-mobile="auto"><script>(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Davydson Verri">Davydson Verri</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a href="javascript:void(0);" class="menu-item theme-switch" title="Trocar tema">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a><a href="javascript:void(0);" class="menu-item language" title="Selecione o idioma">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>                      
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/posts/configurar-rabbitmq-docker-compose-filas-exchanges-dlq-plugins/" selected>Português</option></select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Davydson Verri">Davydson Verri</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a href="javascript:void(0);" class="menu-item theme-switch" title="Trocar tema">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="Selecione o idioma">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/posts/configurar-rabbitmq-docker-compose-filas-exchanges-dlq-plugins/" selected>Português</option></select>
+                </a></div>
+    </div>
+</header><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Conteúdos</h2>
+            <div class="toc-content always-active" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Como Configurar RabbitMQ no Docker Compose com Filas, DLQs, Plugins e Segurança</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Davydson Verri</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2025-04-17">2025-04-17</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;609 palavras&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;3 minutos&nbsp;</div>
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/posts/configurar-rabbitmq-docker-compose-filas-exchanges-dlq-plugins/configurar-rabbitmq-docker-compose-filas-exchanges-dlq-plugins.webp"
+        data-srcset="/posts/configurar-rabbitmq-docker-compose-filas-exchanges-dlq-plugins/configurar-rabbitmq-docker-compose-filas-exchanges-dlq-plugins.webp, /posts/configurar-rabbitmq-docker-compose-filas-exchanges-dlq-plugins/configurar-rabbitmq-docker-compose-filas-exchanges-dlq-plugins.webp 1.5x, /posts/configurar-rabbitmq-docker-compose-filas-exchanges-dlq-plugins/configurar-rabbitmq-docker-compose-filas-exchanges-dlq-plugins.webp 2x"
+        data-sizes="auto"
+        alt="/posts/configurar-rabbitmq-docker-compose-filas-exchanges-dlq-plugins/configurar-rabbitmq-docker-compose-filas-exchanges-dlq-plugins.webp"
+        title="Aprenda a configurar uma instância completa do RabbitMQ com Docker Compose, incluindo filas, exchanges, DLQs, plugins e usuários prontos para uso." width="940" height="465" /></div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Conteúdos</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#fa-regular-fa-compass-introdução"><i class="fa-regular fa-compass" aria-hidden="true"></i>&nbsp;Introdução</a></li>
+    <li><a href="#fa-solid-fa-diagram-project-diagrama"><i class="fa-solid fa-diagram-project" aria-hidden="true"></i>&nbsp;Diagrama</a></li>
+    <li><a href="#fa-brands-fa-docker-como-rodar-o-rabbitmq"><i class="fa-brands fa-docker" aria-hidden="true"></i>&nbsp;Como rodar o RabbitMQ</a>
+      <ul>
+        <li><a href="#pré-requisitos">Pré-requisitos</a></li>
+        <li><a href="#subir-a-instrância">Subir a instrância</a></li>
+      </ul>
+    </li>
+    <li><a href="#fa-solid-fa-key-credenciais"><i class="fa-solid fa-key" aria-hidden="true"></i>&nbsp;Credenciais</a></li>
+    <li><a href="#fa-solid-fa-folder-tree-estrutura-dos-arquivos"><i class="fa-solid fa-folder-tree" aria-hidden="true"></i>&nbsp;Estrutura dos arquivos</a>
+      <ul>
+        <li><a href="#definitionsjson"><code>definitions.json</code></a></li>
+        <li><a href="#docker-composeyaml"><code>docker-compose.yaml</code></a></li>
+        <li><a href="#enabled_plugins"><code>enabled_plugins</code></a></li>
+        <li><a href="#rabbitmqconf"><code>rabbitmq.conf</code></a></li>
+      </ul>
+    </li>
+    <li><a href="#fa-brands-fa-github-repositório"><i class="fa-brands fa-github" aria-hidden="true"></i>&nbsp;Repositório</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="fa-regular-fa-compass-introdução"><i class="fa-regular fa-compass" aria-hidden="true"></i>&nbsp;Introdução</h2>
+<p>Recentemente, precisei rodar uma instância do <strong>RabbitMQ</strong> no meu ambiente local. O desafio era replicar fielmente o ambiente de produção, incluindo a configuração de <strong>virtual hosts, exchanges, filas, routing keys, bindings, usuários, permissões e plugins</strong>, para que eu pudesse simplesmente iniciar o desenvolvimento sem me preocupar com a infraestrutura.</p>
+<p>Para resolver isso com o Docker, criei um docker-compose que sobe uma instância do RabbitMQ já configurada com todos os recursos que a aplicação precisa.
+Assim, consigo simular o ambiente produtivo de forma realista e garantir que a aplicação funcione corretamente durante o desenvolvimento.</p>
+<p>Neste post, vou mostrar como você também pode montar rapidamente seu ambiente de RabbitMQ, seja para estudar, testar ou desenvolver aplicações que dependem de uma infraestrutura pré-configurada.</p>
+<h2 id="fa-solid-fa-diagram-project-diagrama"><i class="fa-solid fa-diagram-project" aria-hidden="true"></i>&nbsp;Diagrama</h2>
+<p>Para facilitar o entendimento, criei uma estrutura básica muito utilizada no RabbitMQ que consiste em:</p>
+<ol>
+<li><strong>Exchange</strong> para receber mensagens e rotear para fila a partir de <strong>routing keys</strong></li>
+<li><strong>Queue</strong> para receber, armazenar a mensagem e disponibiliza-la aos consumidores</li>
+<li><strong>Deadletter Exchange</strong> para receber mensagens recusadas pelo consumidor</li>
+<li><strong>Deadletter Queue</strong> para receber e armazenar mensagens recusadas</li>
+</ol>
+<p>Com essa estrutura, você terá uma base pronta e vários exemplos de configuração que vão facilitar a personalização para atender às suas necessidades.</p>
+<div class="mermaid" id="id-1"></div>
+<h2 id="fa-brands-fa-docker-como-rodar-o-rabbitmq"><i class="fa-brands fa-docker" aria-hidden="true"></i>&nbsp;Como rodar o RabbitMQ</h2>
+<h3 id="pré-requisitos">Pré-requisitos</h3>
+<ol>
+<li>CLI do git instalado</li>
+<li>Docker instalado e rodando</li>
+</ol>
+<h3 id="subir-a-instrância">Subir a instrância</h3>
+<p><strong>1.</strong> Clone o repositório na pasta de sua preferência</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar para a área de transferência"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git clone https://github.com/davydsonverri/rabbitmq-docker-compose.git</span></span></code></pre></div></div>
+<p><strong>2.</strong> Acesse a pasta que contem o arquivo <code>docker-compose.yaml</code></p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar para a área de transferência"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">cd</span> rabbitmq-docker-compose</span></span></code></pre></div></div>
+<p><strong>3.</strong> Execute o comando compose no modo daemon</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar para a área de transferência"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker-compose up -d</span></span></code></pre></div></div>
+<p>Pronto, sua instância está rodando e você pode acessar a interface web do <a href="http://localhost:15672/" target="_blank" rel="noopener noreffer ">Rabbit Management</a> para visualizar as recursos que foram criados.</p>
+<h2 id="fa-solid-fa-key-credenciais"><i class="fa-solid fa-key" aria-hidden="true"></i>&nbsp;Credenciais</h2>
+<p>Para logar use as seguintes credenciais:</p>
+<p><strong>Usuario:</strong> guest</p>
+<p><strong>Password:</strong> guest123</p>
+<h2 id="fa-solid-fa-folder-tree-estrutura-dos-arquivos"><i class="fa-solid fa-folder-tree" aria-hidden="true"></i>&nbsp;Estrutura dos arquivos</h2>
+<p>Para que você possa compreender e personalizar a instância do RabbitMQ com facilidade, a seguir apresento a estrutura dos arquivos e explico o papel de cada configuração.</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar para a área de transferência"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><pre tabindex="0"><code>rabbitmq-docker/
+├── definitions.json
+├── docker-compose.yaml
+├── enabled_plugins
+└── rabbitmq.conf</code></pre></div>
+<h3 id="definitionsjson"><code>definitions.json</code></h3>
+<p>Este é o principal arquivo de configuração do RabbitMQ, nele você consegue:</p>
+<ul>
+<li>👤  Configurar usuários;</li>
+<li>🛡️  Configurar permissionamento;</li>
+<li>📦  Configurar virtual hosts;</li>
+<li>🔀  Configurar exchanges;</li>
+<li>📨  Configurar filas;</li>
+<li>🪦  Configurar deadletters.</li>
+</ul>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-json">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar para a área de transferência"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;users&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;guest&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;password_hash&#34;</span><span class="p">:</span> <span class="s2">&#34;oRw25r5d1FRUfrpGueD2bJXm57h8LbslWfhf4gz7xndOafRv&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;hashing_algorithm&#34;</span><span class="p">:</span> <span class="s2">&#34;rabbit_password_hashing_sha256&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;tags&#34;</span><span class="p">:</span> <span class="s2">&#34;administrator&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;vhosts&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span> <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;/&#34;</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span> <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;MYVH&#34;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">],</span>    
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;permissions&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;user&#34;</span><span class="p">:</span> <span class="s2">&#34;guest&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;vhost&#34;</span><span class="p">:</span> <span class="s2">&#34;/&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;configure&#34;</span><span class="p">:</span> <span class="s2">&#34;.*&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;write&#34;</span><span class="p">:</span> <span class="s2">&#34;.*&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;read&#34;</span><span class="p">:</span> <span class="s2">&#34;.*&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">},</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;user&#34;</span><span class="p">:</span> <span class="s2">&#34;guest&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;vhost&#34;</span><span class="p">:</span> <span class="s2">&#34;MYVH&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;configure&#34;</span><span class="p">:</span> <span class="s2">&#34;.*&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;write&#34;</span><span class="p">:</span> <span class="s2">&#34;.*&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;read&#34;</span><span class="p">:</span> <span class="s2">&#34;.*&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;queues&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;MYVH.MainQueue&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;vhost&#34;</span><span class="p">:</span> <span class="s2">&#34;MYVH&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;durable&#34;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arguments&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&#34;x-dead-letter-exchange&#34;</span><span class="p">:</span> <span class="s2">&#34;MYVH.DeadletterExchange&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&#34;x-dead-letter-routing-key&#34;</span><span class="p">:</span> <span class="s2">&#34;MYVH.MainQueue.Dlq&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="p">},</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;MYVH.MainQueue.Dlq&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;vhost&#34;</span><span class="p">:</span> <span class="s2">&#34;MYVH&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;durable&#34;</span><span class="p">:</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;exchanges&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;MYVH.MainExchange&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;vhost&#34;</span><span class="p">:</span> <span class="s2">&#34;MYVH&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;direct&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;durable&#34;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;auto_delete&#34;</span><span class="p">:</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl">      <span class="p">},</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;MYVH.DeadletterExchange&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;vhost&#34;</span><span class="p">:</span> <span class="s2">&#34;MYVH&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;direct&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;durable&#34;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;auto_delete&#34;</span><span class="p">:</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;bindings&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;vhost&#34;</span><span class="p">:</span> <span class="s2">&#34;MYVH&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;source&#34;</span><span class="p">:</span> <span class="s2">&#34;MYVH.MainExchange&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;destination&#34;</span><span class="p">:</span> <span class="s2">&#34;MYVH.MainQueue&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;destination_type&#34;</span><span class="p">:</span> <span class="s2">&#34;queue&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;routing_key&#34;</span><span class="p">:</span> <span class="s2">&#34;MYVH.MainQueue&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">},</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;vhost&#34;</span><span class="p">:</span> <span class="s2">&#34;MYVH&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;source&#34;</span><span class="p">:</span> <span class="s2">&#34;MYVH.DeadletterExchange&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;destination&#34;</span><span class="p">:</span> <span class="s2">&#34;MYVH.MainQueue.Dlq&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;destination_type&#34;</span><span class="p">:</span> <span class="s2">&#34;queue&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;routing_key&#34;</span><span class="p">:</span> <span class="s2">&#34;MYVH.MainQueue.Dlq&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span></span></span></code></pre></div></div>
+<h3 id="docker-composeyaml"><code>docker-compose.yaml</code></h3>
+<p>Configurações gerais do container docker contendo a versão da imagem do RabbitMQ, portas do broker e do portal de gestão, bem como as referência dos arquivos de configuração que serão mapeados para dentro do container.</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-yaml">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar para a área de transferência"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">services</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">rabbitmq</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">rabbitmq:4.1-management</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l">rabbitmq</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;5672:5672&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;15672:15672&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">./rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">./enabled_plugins:/etc/rabbitmq/enabled_plugins</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">./definitions.json:/etc/rabbitmq/definitions.json</span></span></span></code></pre></div></div>
+<h3 id="enabled_plugins"><code>enabled_plugins</code></h3>
+<p>Responsável por habilitar plugins do RabbitMQ.</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-json">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar para a área de transferência"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="err">rabbitmq_management</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="err">rabbitmq_shovel</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="err">rabbitmq_shovel_management</span>
+</span></span><span class="line"><span class="cl"><span class="p">]</span><span class="err">.</span></span></span></code></pre></div></div>
+<ul>
+<li><strong>rabbitmq_management</strong> - habilita a interface web de gerenciamento do RabbitMQ</li>
+<li><strong>rabbitmq_shovel</strong> - habilita a shovel, um plugin usado para copiar mensagens</li>
+<li><strong>rabbitmq_shovel_management</strong> - habilita a interface web de gerencialmente do shovel</li>
+</ul>
+<h3 id="rabbitmqconf"><code>rabbitmq.conf</code></h3>
+<p>Responsável por fazer o link com  o arquivo de definitions.json</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar para a área de transferência"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><pre tabindex="0"><code>load_definitions = /etc/rabbitmq/definitions.json</code></pre></div>
+<h2 id="fa-brands-fa-github-repositório"><i class="fa-brands fa-github" aria-hidden="true"></i>&nbsp;Repositório</h2>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Atualizado em 2025-04-17</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Compartilhe em Facebook" data-sharer="facebook" data-url="https://davys.tech/posts/configurar-rabbitmq-docker-compose-filas-exchanges-dlq-plugins/" data-hashtag="RabbitMQ"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Compartilhe em Linkedin" data-sharer="linkedin" data-url="https://davys.tech/posts/configurar-rabbitmq-docker-compose-filas-exchanges-dlq-plugins/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Compartilhe em WhatsApp" data-sharer="whatsapp" data-url="https://davys.tech/posts/configurar-rabbitmq-docker-compose-filas-exchanges-dlq-plugins/" data-title="Como Configurar RabbitMQ no Docker Compose com Filas, DLQs, Plugins e Segurança" data-web><i class="fab fa-whatsapp fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Compartilhe em Reddit" data-sharer="reddit" data-url="https://davys.tech/posts/configurar-rabbitmq-docker-compose-filas-exchanges-dlq-plugins/"><i class="fab fa-reddit fa-fw" aria-hidden="true"></i></a><a href="https://t.me/share/url?url=https%3a%2f%2fdavys.tech%2fposts%2fconfigurar-rabbitmq-docker-compose-filas-exchanges-dlq-plugins%2f&amp;text=Como%20Configurar%20RabbitMQ%20no%20Docker%20Compose%20com%20Filas%2c%20DLQs%2c%20Plugins%20e%20Seguran%c3%a7a" target="_blank" title="Compartilhe em Telegram"><i class="fab fa-telegram fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/rabbitmq/">RabbitMQ</a>,&nbsp;<a href="/tags/docker/">Docker</a>,&nbsp;<a href="/tags/mensageria/">Mensageria</a>,&nbsp;<a href="/tags/filas/">Filas</a>,&nbsp;<a href="/tags/devops/">DevOps</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Voltar</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"></div>
+</div>
+</article></div>
+            </main></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Voltar ao topo">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a>
+        </div>
+
+        <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="Ver comentários">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script src="https://cdn.jsdelivr.net/npm/twemoji@14.0.2/dist/twemoji.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.2/sharer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js"></script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js"></script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/copy-tex.min.js"></script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/mhchem.min.js"></script><script src="https://cdn.jsdelivr.net/npm/mermaid@11.5.0/dist/mermaid.min.js"></script><script>window.config={"comment":{},"data":{"id-1":"flowchart TD\n    P(Producer) --\u003e A\n    A(🔀 Exchange\n          MYVH.MainExchange) --\u003e|🔑MYVH.MainQueue| B(📩 Queue\n                                                  MYVH.MainQueue)    \n    B(📩 Queue\n                                                  MYVH.MainQueue) --\u003e C(Consumer)\n    B --\u003e |🔑MYVH.MainQueue.Dlq| D(🔀 Exchange\n                                       MYVH.DeadletterExchange)\n    D --\u003e |🔑MYVH.MainQueue.Dlq| E(📩 Queue\n                                                  MYVH.MainQueue.Dlq)"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"twemoji":true};</script><script src="/js/theme.min.js"></script></body>
+</html>

@@ -2,6 +2,7 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
+            <loc>https://davys.tech/posts/configurar-rabbitmq-docker-compose-filas-exchanges-dlq-plugins/</loc><lastmod>2025-04-17T06:13:33-03:00</lastmod></url><url>
             <loc>https://davys.tech/</loc><lastmod>2025-04-17T06:13:33-03:00</lastmod><xhtml:link
                         rel="alternate"
                         hreflang="en"
@@ -11,7 +12,21 @@
                     hreflang="pt-br"
                     href="https://davys.tech/"
                     /></url><url>
+            <loc>https://davys.tech/tags/devops/</loc><lastmod>2025-04-17T06:13:33-03:00</lastmod></url><url>
+            <loc>https://davys.tech/tags/docker/</loc><lastmod>2025-04-17T06:13:33-03:00</lastmod></url><url>
+            <loc>https://davys.tech/tags/filas/</loc><lastmod>2025-04-17T06:13:33-03:00</lastmod></url><url>
+            <loc>https://davys.tech/tags/mensageria/</loc><lastmod>2025-04-17T06:13:33-03:00</lastmod></url><url>
             <loc>https://davys.tech/posts/</loc><lastmod>2025-04-17T06:13:33-03:00</lastmod></url><url>
+            <loc>https://davys.tech/tags/rabbitmq/</loc><lastmod>2025-04-17T06:13:33-03:00</lastmod></url><url>
+            <loc>https://davys.tech/tags/</loc><lastmod>2025-04-17T06:13:33-03:00</lastmod><xhtml:link
+                        rel="alternate"
+                        hreflang="en"
+                        href="https://davys.tech/en/tags/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="pt-br"
+                    href="https://davys.tech/tags/"
+                    /></url><url>
             <loc>https://davys.tech/categories/</loc><xhtml:link
                         rel="alternate"
                         hreflang="en"
@@ -20,13 +35,4 @@
                     rel="alternate"
                     hreflang="pt-br"
                     href="https://davys.tech/categories/"
-                    /></url><url>
-            <loc>https://davys.tech/tags/</loc><xhtml:link
-                        rel="alternate"
-                        hreflang="en"
-                        href="https://davys.tech/en/tags/"
-                        /><xhtml:link
-                    rel="alternate"
-                    hreflang="pt-br"
-                    href="https://davys.tech/tags/"
                     /></url></urlset>

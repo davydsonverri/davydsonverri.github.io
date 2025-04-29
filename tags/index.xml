@@ -6,6 +6,42 @@
     <description>Recent content in Tags on Davydson Verri</description>
     <generator>Hugo</generator>
     <language>pt-br</language>
+    <lastBuildDate>Thu, 17 Apr 2025 06:13:33 -0300</lastBuildDate>
     <atom:link href="https://davys.tech/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>DevOps</title>
+      <link>https://davys.tech/tags/devops/</link>
+      <pubDate>Thu, 17 Apr 2025 06:13:33 -0300</pubDate>
+      <guid>https://davys.tech/tags/devops/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Docker</title>
+      <link>https://davys.tech/tags/docker/</link>
+      <pubDate>Thu, 17 Apr 2025 06:13:33 -0300</pubDate>
+      <guid>https://davys.tech/tags/docker/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Filas</title>
+      <link>https://davys.tech/tags/filas/</link>
+      <pubDate>Thu, 17 Apr 2025 06:13:33 -0300</pubDate>
+      <guid>https://davys.tech/tags/filas/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Mensageria</title>
+      <link>https://davys.tech/tags/mensageria/</link>
+      <pubDate>Thu, 17 Apr 2025 06:13:33 -0300</pubDate>
+      <guid>https://davys.tech/tags/mensageria/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>RabbitMQ</title>
+      <link>https://davys.tech/tags/rabbitmq/</link>
+      <pubDate>Thu, 17 Apr 2025 06:13:33 -0300</pubDate>
+      <guid>https://davys.tech/tags/rabbitmq/</guid>
+      <description></description>
+    </item>
   </channel>
 </rss>
