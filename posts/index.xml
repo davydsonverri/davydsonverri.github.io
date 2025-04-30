@@ -1,14 +1,14 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>Posts - Davydson Verri</title>
-        <link>https://davys.tech/posts/</link>
+        <link>http://localhost:8080/posts/</link>
         <description>Posts | Davydson Verri</description>
-        <generator>Hugo -- gohugo.io</generator><language>pt-br</language><lastBuildDate>Thu, 17 Apr 2025 06:13:33 -0300</lastBuildDate><atom:link href="https://davys.tech/posts/" rel="self" type="application/rss+xml" /><item>
-    <title>Como Configurar RabbitMQ no Docker Compose com Filas, DLQs, Plugins e Segurança</title>
-    <link>https://davys.tech/posts/configurar-rabbitmq-docker-compose-filas-exchanges-dlq-plugins/</link>
+        <generator>Hugo -- gohugo.io</generator><language>pt-br</language><lastBuildDate>Thu, 17 Apr 2025 06:13:33 -0300</lastBuildDate><atom:link href="http://localhost:8080/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>Como Configurar RabbitMQ com Docker Compose, Filas, DLQs, Plugins e Segurança</title>
+    <link>http://localhost:8080/posts/configurar-rabbitmq-docker-compose-filas-exchanges-dlq-plugins/</link>
     <pubDate>Thu, 17 Apr 2025 06:13:33 -0300</pubDate>
     <author>Davydson Verri</author>
-    <guid>https://davys.tech/posts/configurar-rabbitmq-docker-compose-filas-exchanges-dlq-plugins/</guid>
+    <guid>http://localhost:8080/posts/configurar-rabbitmq-docker-compose-filas-exchanges-dlq-plugins/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/configurar-rabbitmq-docker-compose-filas-exchanges-dlq-plugins.webp" referrerpolicy="no-referrer">
             </div><h2 id="fa-regular-fa-compass-introdução"><i class="fa-regular fa-compass" aria-hidden="true"></i>&nbsp;Introdução</h2>

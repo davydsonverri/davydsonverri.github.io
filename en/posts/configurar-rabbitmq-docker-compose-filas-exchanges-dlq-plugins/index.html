@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
     <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=8080&amp;path=livereload" data-no-instant defer></script>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <title>Como Configurar RabbitMQ com Docker Compose, Filas, DLQs, Plugins e Segurança - Davydson Verri</title><meta name="Description" content="Aprenda a configurar uma instância completa do RabbitMQ com Docker Compose, incluindo filas, exchanges, DLQs, plugins e usuários prontos para uso."><meta property="og:url" content="http://localhost:8080/posts/configurar-rabbitmq-docker-compose-filas-exchanges-dlq-plugins/">
-  <meta property="og:site_name" content="Davydson Verri">
-  <meta property="og:title" content="Como Configurar RabbitMQ com Docker Compose, Filas, DLQs, Plugins e Segurança">
+        <title>How to Set Up RabbitMQ with Docker Compose: Queues, DLQs, Plugins, and Security - Davydson Verri Blog</title><meta name="Description" content="Aprenda a configurar uma instância completa do RabbitMQ com Docker Compose, incluindo filas, exchanges, DLQs, plugins e usuários prontos para uso."><meta property="og:url" content="http://localhost:8080/en/posts/configurar-rabbitmq-docker-compose-filas-exchanges-dlq-plugins/">
+  <meta property="og:site_name" content="Davydson Verri Blog">
+  <meta property="og:title" content="How to Set Up RabbitMQ with Docker Compose: Queues, DLQs, Plugins, and Security">
   <meta property="og:description" content="Aprenda a configurar uma instância completa do RabbitMQ com Docker Compose, incluindo filas, exchanges, DLQs, plugins e usuários prontos para uso.">
-  <meta property="og:locale" content="pt_br">
+  <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2025-04-17T06:13:33-03:00">
@@ -20,13 +20,13 @@
     <meta property="article:tag" content="DevOps">
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Como Configurar RabbitMQ com Docker Compose, Filas, DLQs, Plugins e Segurança">
+  <meta name="twitter:title" content="How to Set Up RabbitMQ with Docker Compose: Queues, DLQs, Plugins, and Security">
   <meta name="twitter:description" content="Aprenda a configurar uma instância completa do RabbitMQ com Docker Compose, incluindo filas, exchanges, DLQs, plugins e usuários prontos para uso.">
 <meta name="application-name" content="My cool site">
 <meta name="apple-mobile-web-app-title" content="My cool site">
 <meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://localhost:8080/posts/configurar-rabbitmq-docker-compose-filas-exchanges-dlq-plugins/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://localhost:8080/en/posts/configurar-rabbitmq-docker-compose-filas-exchanges-dlq-plugins/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="/lib/fontawesome-free/css/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript></head>
     <body data-header-desktop="auto" data-header-mobile="auto"><script>(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
@@ -34,14 +34,14 @@
         <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
     <div class="header-wrapper">
         <div class="header-title">
-            <a href="/" title="Davydson Verri">Davydson Verri</a>
+            <a href="/en/" title="Davydson Verri Blog">Davydson Verri</a>
         </div>
         <div class="menu">
-            <div class="menu-inner"><a href="javascript:void(0);" class="menu-item theme-switch" title="Trocar tema">
+            <div class="menu-inner"><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
                     <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
-                </a><a href="javascript:void(0);" class="menu-item language" title="Selecione o idioma">
+                </a><a href="javascript:void(0);" class="menu-item language" title="Select Language">
                     <i class="fa fa-globe fa-fw" aria-hidden="true"></i>                      
-                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/posts/configurar-rabbitmq-docker-compose-filas-exchanges-dlq-plugins/" selected>Português</option><option value="/en/posts/rabbitmq-setup-with-compose-queue-exchanges-dlq-plugins-using-docker-compose/">English</option></select>
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/posts/configurar-rabbitmq-docker-compose-filas-exchanges-dlq-plugins/">Português</option><option value="/en/posts/configurar-rabbitmq-docker-compose-filas-exchanges-dlq-plugins/" selected>English</option></select>
                 </a></div>
         </div>
     </div>
@@ -49,37 +49,37 @@
     <div class="header-container">
         <div class="header-wrapper">
             <div class="header-title">
-                <a href="/" title="Davydson Verri">Davydson Verri</a>
+                <a href="/en/" title="Davydson Verri Blog">Davydson Verri</a>
             </div>
             <div class="menu-toggle" id="menu-toggle-mobile">
                 <span></span><span></span><span></span>
             </div>
         </div>
-        <div class="menu" id="menu-mobile"><a href="javascript:void(0);" class="menu-item theme-switch" title="Trocar tema">
+        <div class="menu" id="menu-mobile"><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
                 <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
-            </a><a href="javascript:void(0);" class="menu-item" title="Selecione o idioma">
+            </a><a href="javascript:void(0);" class="menu-item" title="Select Language">
                     <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
-                    <select class="language-select" onchange="location = this.value;"><option value="/posts/configurar-rabbitmq-docker-compose-filas-exchanges-dlq-plugins/" selected>Português</option><option value="/en/posts/rabbitmq-setup-with-compose-queue-exchanges-dlq-plugins-using-docker-compose/">English</option></select>
+                    <select class="language-select" onchange="location = this.value;"><option value="/posts/configurar-rabbitmq-docker-compose-filas-exchanges-dlq-plugins/">Português</option><option value="/en/posts/configurar-rabbitmq-docker-compose-filas-exchanges-dlq-plugins/" selected>English</option></select>
                 </a></div>
     </div>
 </header><main class="main">
                 <div class="container"><div class="toc" id="toc-auto">
-            <h2 class="toc-title">Conteúdos</h2>
+            <h2 class="toc-title">Contents</h2>
             <div class="toc-content always-active" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Como Configurar RabbitMQ com Docker Compose, Filas, DLQs, Plugins e Segurança</h1><div class="post-meta">
-            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Davydson Verri</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="17-04-2025">17-04-2025</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;650 palavras&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;4 minutos&nbsp;</div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">How to Set Up RabbitMQ with Docker Compose: Queues, DLQs, Plugins, and Security</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/en/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Davydson Verri</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="04-17-2025">04-17-2025</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;654 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;4 minutes&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="/posts/configurar-rabbitmq-docker-compose-filas-exchanges-dlq-plugins/configurar-rabbitmq-docker-compose-filas-exchanges-dlq-plugins.webp"
-        data-srcset="/posts/configurar-rabbitmq-docker-compose-filas-exchanges-dlq-plugins/configurar-rabbitmq-docker-compose-filas-exchanges-dlq-plugins.webp, /posts/configurar-rabbitmq-docker-compose-filas-exchanges-dlq-plugins/configurar-rabbitmq-docker-compose-filas-exchanges-dlq-plugins.webp 1.5x, /posts/configurar-rabbitmq-docker-compose-filas-exchanges-dlq-plugins/configurar-rabbitmq-docker-compose-filas-exchanges-dlq-plugins.webp 2x"
+        data-src="/en/posts/configurar-rabbitmq-docker-compose-filas-exchanges-dlq-plugins/configurar-rabbitmq-docker-compose-filas-exchanges-dlq-plugins.webp"
+        data-srcset="/en/posts/configurar-rabbitmq-docker-compose-filas-exchanges-dlq-plugins/configurar-rabbitmq-docker-compose-filas-exchanges-dlq-plugins.webp, /en/posts/configurar-rabbitmq-docker-compose-filas-exchanges-dlq-plugins/configurar-rabbitmq-docker-compose-filas-exchanges-dlq-plugins.webp 1.5x, /en/posts/configurar-rabbitmq-docker-compose-filas-exchanges-dlq-plugins/configurar-rabbitmq-docker-compose-filas-exchanges-dlq-plugins.webp 2x"
         data-sizes="auto"
-        alt="/posts/configurar-rabbitmq-docker-compose-filas-exchanges-dlq-plugins/configurar-rabbitmq-docker-compose-filas-exchanges-dlq-plugins.webp"
+        alt="/en/posts/configurar-rabbitmq-docker-compose-filas-exchanges-dlq-plugins/configurar-rabbitmq-docker-compose-filas-exchanges-dlq-plugins.webp"
         title="Aprenda a configurar uma instância completa do RabbitMQ com Docker Compose, incluindo filas, exchanges, DLQs, plugins e usuários prontos para uso." width="940" height="465" /></div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
-                    <span>Conteúdos</span>
+                    <span>Contents</span>
                     <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
@@ -101,7 +101,7 @@
         <li><a href="#rabbitmqconf"><code>rabbitmq.conf</code></a></li>
       </ul>
     </li>
-    <li><a href="#fa-brands-fa-github-repositório-git"><i class="fa-brands fa-github" aria-hidden="true"></i>&nbsp;Repositório Git</a></li>
+    <li><a href="#fa-brands-fa-github-repositório"><i class="fa-brands fa-github" aria-hidden="true"></i>&nbsp;Repositório</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><h2 id="fa-regular-fa-compass-introdução"><i class="fa-regular fa-compass" aria-hidden="true"></i>&nbsp;Introdução</h2>
@@ -131,21 +131,21 @@ Assim, consigo simular o ambiente produtivo de forma realista e garantir que a a
     <div class="code-header language-bash">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
-        <span class="copy" title="Copiar para a área de transferência"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git clone https://github.com/davydsonverri/rabbitmq-docker-compose.git</span></span></code></pre></div></div>
 <p><strong>2.</strong> Acesse a pasta que contem o arquivo <code>docker-compose.yaml</code></p>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-bash">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
-        <span class="copy" title="Copiar para a área de transferência"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">cd</span> rabbitmq-docker-compose</span></span></code></pre></div></div>
 <p><strong>3.</strong> Execute o comando compose no modo daemon</p>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-bash">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
-        <span class="copy" title="Copiar para a área de transferência"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker-compose up -d</span></span></code></pre></div></div>
 <p>Pronto, sua instância está rodando e você pode acessar a interface web do <a href="http://localhost:15672/" target="_blank" rel="noopener noreffer ">Rabbit Management</a> para visualizar os recursos que foram criados.</p>
 <h2 id="fa-solid-fa-key-credenciais"><i class="fa-solid fa-key" aria-hidden="true"></i>&nbsp;Credenciais</h2>
@@ -158,27 +158,27 @@ Assim, consigo simular o ambiente produtivo de forma realista e garantir que a a
     <div class="code-header language-">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
-        <span class="copy" title="Copiar para a área de transferência"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
     </div><pre tabindex="0"><code>rabbitmq-docker/
 ├── definitions.json
 ├── docker-compose.yaml
 ├── enabled_plugins
 └── rabbitmq.conf</code></pre></div>
 <h3 id="definitionsjson"><code>definitions.json</code></h3>
-<p>Este é o principal arquivo de configuração do RabbitMQ, nele você consegue configurar:</p>
+<p>Este é o principal arquivo de configuração do RabbitMQ, nele você consegue:</p>
 <ul>
-<li>👤  Usuários;</li>
-<li>🛡️  Permissionamento;</li>
-<li>📦  Virtual hosts;</li>
-<li>🔀  Exchanges;</li>
-<li>📨  Filas;</li>
-<li>🪦  Deadletters.</li>
+<li>👤  Configurar usuários;</li>
+<li>🛡️  Configurar permissionamento;</li>
+<li>📦  Configurar virtual hosts;</li>
+<li>🔀  Configurar exchanges;</li>
+<li>📨  Configurar filas;</li>
+<li>🪦  Configurar deadletters.</li>
 </ul>
 <div class="code-block code-line-numbers" style="counter-reset: code-block 0">
     <div class="code-header language-json">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
-        <span class="copy" title="Copiar para a área de transferência"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;users&#34;</span><span class="p">:</span> <span class="p">[</span>
 </span></span><span class="line"><span class="cl">      <span class="p">{</span>
@@ -263,7 +263,7 @@ Assim, consigo simular o ambiente produtivo de forma realista e garantir que a a
     <div class="code-header language-yaml">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
-        <span class="copy" title="Copiar para a área de transferência"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">services</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">rabbitmq</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">rabbitmq:4.1-management</span><span class="w">
@@ -281,7 +281,7 @@ Assim, consigo simular o ambiente produtivo de forma realista e garantir que a a
     <div class="code-header language-json">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
-        <span class="copy" title="Copiar para a área de transferência"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">[</span>
 </span></span><span class="line"><span class="cl">    <span class="err">rabbitmq_management</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="err">rabbitmq_shovel</span><span class="p">,</span>
@@ -298,9 +298,9 @@ Assim, consigo simular o ambiente produtivo de forma realista e garantir que a a
     <div class="code-header language-">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
-        <span class="copy" title="Copiar para a área de transferência"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
     </div><pre tabindex="0"><code>load_definitions = /etc/rabbitmq/definitions.json</code></pre></div>
-<h2 id="fa-brands-fa-github-repositório-git"><i class="fa-brands fa-github" aria-hidden="true"></i>&nbsp;Repositório Git</h2>
+<h2 id="fa-brands-fa-github-repositório"><i class="fa-brands fa-github" aria-hidden="true"></i>&nbsp;Repositório</h2>
 <p>Acesse o repositório no GitHub: <a href="https://github.com/davydsonverri/rabbitmq-docker-compose.git" target="_blank" rel="noopener noreffer ">rabbitmq-docker-compose</a></p>
 <p>Se este post foi útil para você, considere deixar uma ⭐ no repositório, isso ajuda o projeto a alcançar mais pessoas.<br>
 Sinta-se à vontade para fazer um fork, abrir issues ou enviar pull requests. Toda contribuição é muito bem-vinda!</p>
@@ -308,20 +308,20 @@ Sinta-se à vontade para fazer um fork, abrir issues ou enviar pull requests. To
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Atualizado em 17-04-2025</span>
+                <span>Updated on 04-17-2025</span>
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="Compartilhe em Facebook" data-sharer="facebook" data-url="http://localhost:8080/posts/configurar-rabbitmq-docker-compose-filas-exchanges-dlq-plugins/" data-hashtag="RabbitMQ"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Compartilhe em Linkedin" data-sharer="linkedin" data-url="http://localhost:8080/posts/configurar-rabbitmq-docker-compose-filas-exchanges-dlq-plugins/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Compartilhe em WhatsApp" data-sharer="whatsapp" data-url="http://localhost:8080/posts/configurar-rabbitmq-docker-compose-filas-exchanges-dlq-plugins/" data-title="Como Configurar RabbitMQ com Docker Compose, Filas, DLQs, Plugins e Segurança" data-web><i class="fab fa-whatsapp fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Compartilhe em Reddit" data-sharer="reddit" data-url="http://localhost:8080/posts/configurar-rabbitmq-docker-compose-filas-exchanges-dlq-plugins/"><i class="fab fa-reddit fa-fw" aria-hidden="true"></i></a><a href="https://t.me/share/url?url=http%3a%2f%2flocalhost%3a8080%2fposts%2fconfigurar-rabbitmq-docker-compose-filas-exchanges-dlq-plugins%2f&amp;text=Como%20Configurar%20RabbitMQ%20com%20Docker%20Compose%2c%20Filas%2c%20DLQs%2c%20Plugins%20e%20Seguran%c3%a7a" target="_blank" title="Compartilhe em Telegram"><i class="fab fa-telegram fa-fw" aria-hidden="true"></i></a></span>
+                <span><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="http://localhost:8080/en/posts/configurar-rabbitmq-docker-compose-filas-exchanges-dlq-plugins/" data-hashtag="RabbitMQ"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="http://localhost:8080/en/posts/configurar-rabbitmq-docker-compose-filas-exchanges-dlq-plugins/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on WhatsApp" data-sharer="whatsapp" data-url="http://localhost:8080/en/posts/configurar-rabbitmq-docker-compose-filas-exchanges-dlq-plugins/" data-title="How to Set Up RabbitMQ with Docker Compose: Queues, DLQs, Plugins, and Security" data-web><i class="fab fa-whatsapp fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Reddit" data-sharer="reddit" data-url="http://localhost:8080/en/posts/configurar-rabbitmq-docker-compose-filas-exchanges-dlq-plugins/"><i class="fab fa-reddit fa-fw" aria-hidden="true"></i></a><a href="https://t.me/share/url?url=http%3a%2f%2flocalhost%3a8080%2fen%2fposts%2fconfigurar-rabbitmq-docker-compose-filas-exchanges-dlq-plugins%2f&amp;text=How%20to%20Set%20Up%20RabbitMQ%20with%20Docker%20Compose%3a%20Queues%2c%20DLQs%2c%20Plugins%2c%20and%20Security" target="_blank" title="Share on Telegram"><i class="fab fa-telegram fa-fw" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/rabbitmq/">RabbitMQ</a>,&nbsp;<a href="/tags/docker/">Docker</a>,&nbsp;<a href="/tags/mensageria/">Mensageria</a>,&nbsp;<a href="/tags/filas/">Filas</a>,&nbsp;<a href="/tags/devops/">DevOps</a></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/en/tags/rabbitmq/">RabbitMQ</a>,&nbsp;<a href="/en/tags/docker/">Docker</a>,&nbsp;<a href="/en/tags/mensageria/">Mensageria</a>,&nbsp;<a href="/en/tags/filas/">Filas</a>,&nbsp;<a href="/en/tags/devops/">DevOps</a></section>
         <section>
-            <span><a href="javascript:void(0);" onclick="window.history.back();">Voltar</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/en/">Home</a></span>
         </section>
     </div>
 
@@ -330,12 +330,12 @@ Sinta-se à vontade para fazer um fork, abrir issues ou enviar pull requests. To
 </article></div>
             </main></div>
 
-        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Voltar ao topo">
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
                 <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
             </a>
         </div>
 
-        <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="Ver comentários">
+        <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="View Comments">
                 <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
             </a>
         </div><link rel="stylesheet" href="/lib/katex/katex.min.css"><script src="/lib/lazysizes/lazysizes.min.js"></script><script src="/lib/twemoji/twemoji.min.js"></script><script src="/lib/clipboard/clipboard.min.js"></script><script src="/lib/sharer/sharer.min.js"></script><script src="/lib/katex/katex.min.js"></script><script src="/lib/katex/contrib/auto-render.min.js"></script><script src="/lib/katex/contrib/copy-tex.min.js"></script><script src="/lib/katex/contrib/mhchem.min.js"></script><script src="/lib/mermaid/mermaid.min.js"></script><script>window.config={"comment":{},"data":{"id-1":"flowchart TD\n    P(Producer) --\u003e A\n    A(🔀 Exchange\n          MYVH.MainExchange) --\u003e|🔑MYVH.MainQueue| B(📩 Queue\n                                                  MYVH.MainQueue)    \n    B(📩 Queue\n                                                  MYVH.MainQueue) --\u003e C(Consumer)\n    B --\u003e |🔑MYVH.MainQueue.Dlq| D(🔀 Exchange\n                                       MYVH.DeadletterExchange)\n    D --\u003e |🔑MYVH.MainQueue.Dlq| E(📩 Queue\n                                                  MYVH.MainQueue.Dlq)"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"twemoji":true};</script><script src="/js/theme.min.js"></script></body>

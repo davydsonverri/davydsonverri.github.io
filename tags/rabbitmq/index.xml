@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>RabbitMQ on Davydson Verri</title>
-    <link>https://davys.tech/tags/rabbitmq/</link>
+    <link>http://localhost:8080/tags/rabbitmq/</link>
     <description>Recent content in RabbitMQ on Davydson Verri</description>
     <generator>Hugo</generator>
     <language>pt-br</language>
     <lastBuildDate>Thu, 17 Apr 2025 06:13:33 -0300</lastBuildDate>
-    <atom:link href="https://davys.tech/tags/rabbitmq/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:8080/tags/rabbitmq/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Como Configurar RabbitMQ no Docker Compose com Filas, DLQs, Plugins e Segurança</title>
-      <link>https://davys.tech/posts/configurar-rabbitmq-docker-compose-filas-exchanges-dlq-plugins/</link>
+      <title>Como Configurar RabbitMQ com Docker Compose, Filas, DLQs, Plugins e Segurança</title>
+      <link>http://localhost:8080/posts/configurar-rabbitmq-docker-compose-filas-exchanges-dlq-plugins/</link>
       <pubDate>Thu, 17 Apr 2025 06:13:33 -0300</pubDate>
-      <guid>https://davys.tech/posts/configurar-rabbitmq-docker-compose-filas-exchanges-dlq-plugins/</guid>
+      <guid>http://localhost:8080/posts/configurar-rabbitmq-docker-compose-filas-exchanges-dlq-plugins/</guid>
       <description>&lt;h2 id=&#34;fa-regular-fa-compass-introdução&#34;&gt;:(fa-regular fa-compass): Introdução&lt;/h2&gt;&#xA;&lt;p&gt;Recentemente, precisei rodar uma instância do &lt;strong&gt;RabbitMQ&lt;/strong&gt; no meu ambiente local. O desafio era replicar fielmente o ambiente de produção, incluindo a configuração de &lt;strong&gt;virtual hosts, exchanges, filas, routing keys, bindings, usuários, permissões e plugins&lt;/strong&gt;, para que eu pudesse simplesmente iniciar o desenvolvimento sem me preocupar com a infraestrutura.&lt;/p&gt;&#xA;&lt;p&gt;Para resolver isso com o Docker, criei um docker-compose que sobe uma instância do RabbitMQ já configurada com todos os recursos que a aplicação precisa.&#xA;Assim, consigo simular o ambiente produtivo de forma realista e garantir que a aplicação funcione corretamente durante o desenvolvimento.&lt;/p&gt;</description>
     </item>
   </channel>

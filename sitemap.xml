@@ -2,14 +2,16 @@
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <sitemap>
-    <loc>https://davys.tech/pt-br/sitemap.xml</loc>
+    <loc>http://localhost:8080/pt-br/sitemap.xml</loc>
     
       <lastmod>2025-04-17T06:13:33-03:00</lastmod>
     
   </sitemap>
   
   <sitemap>
-    <loc>https://davys.tech/en/sitemap.xml</loc>
+    <loc>http://localhost:8080/en/sitemap.xml</loc>
+    
+      <lastmod>2025-04-17T06:13:33-03:00</lastmod>
     
   </sitemap>
   
