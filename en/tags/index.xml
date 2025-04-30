@@ -2,45 +2,45 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Davydson Verri Blog</title>
-    <link>http://localhost:8080/en/tags/</link>
+    <link>https://davys.tech/en/tags/</link>
     <description>Recent content in Tags on Davydson Verri Blog</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Thu, 17 Apr 2025 06:13:33 -0300</lastBuildDate>
-    <atom:link href="http://localhost:8080/en/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://davys.tech/en/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Broker</title>
-      <link>http://localhost:8080/en/tags/broker/</link>
+      <link>https://davys.tech/en/tags/broker/</link>
       <pubDate>Thu, 17 Apr 2025 06:13:33 -0300</pubDate>
-      <guid>http://localhost:8080/en/tags/broker/</guid>
+      <guid>https://davys.tech/en/tags/broker/</guid>
       <description></description>
     </item>
     <item>
       <title>DevOps</title>
-      <link>http://localhost:8080/en/tags/devops/</link>
+      <link>https://davys.tech/en/tags/devops/</link>
       <pubDate>Thu, 17 Apr 2025 06:13:33 -0300</pubDate>
-      <guid>http://localhost:8080/en/tags/devops/</guid>
+      <guid>https://davys.tech/en/tags/devops/</guid>
       <description></description>
     </item>
     <item>
       <title>Docker</title>
-      <link>http://localhost:8080/en/tags/docker/</link>
+      <link>https://davys.tech/en/tags/docker/</link>
       <pubDate>Thu, 17 Apr 2025 06:13:33 -0300</pubDate>
-      <guid>http://localhost:8080/en/tags/docker/</guid>
+      <guid>https://davys.tech/en/tags/docker/</guid>
       <description></description>
     </item>
     <item>
       <title>Queue</title>
-      <link>http://localhost:8080/en/tags/queue/</link>
+      <link>https://davys.tech/en/tags/queue/</link>
       <pubDate>Thu, 17 Apr 2025 06:13:33 -0300</pubDate>
-      <guid>http://localhost:8080/en/tags/queue/</guid>
+      <guid>https://davys.tech/en/tags/queue/</guid>
       <description></description>
     </item>
     <item>
       <title>RabbitMQ</title>
-      <link>http://localhost:8080/en/tags/rabbitmq/</link>
+      <link>https://davys.tech/en/tags/rabbitmq/</link>
       <pubDate>Thu, 17 Apr 2025 06:13:33 -0300</pubDate>
-      <guid>http://localhost:8080/en/tags/rabbitmq/</guid>
+      <guid>https://davys.tech/en/tags/rabbitmq/</guid>
       <description></description>
     </item>
   </channel>

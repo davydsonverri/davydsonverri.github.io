@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>DevOps on Davydson Verri Blog</title>
-    <link>http://localhost:8080/en/tags/devops/</link>
+    <link>https://davys.tech/en/tags/devops/</link>
     <description>Recent content in DevOps on Davydson Verri Blog</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Thu, 17 Apr 2025 06:13:33 -0300</lastBuildDate>
-    <atom:link href="http://localhost:8080/en/tags/devops/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://davys.tech/en/tags/devops/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How to Set Up RabbitMQ with Docker Compose: Queues, DLQs, Plugins, and Security</title>
-      <link>http://localhost:8080/en/posts/rabbitmq-setup-with-compose-queue-exchanges-dlq-plugins-using-docker-compose/</link>
+      <link>https://davys.tech/en/posts/rabbitmq-setup-with-compose-queue-exchanges-dlq-plugins-using-docker-compose/</link>
       <pubDate>Thu, 17 Apr 2025 06:13:33 -0300</pubDate>
-      <guid>http://localhost:8080/en/posts/rabbitmq-setup-with-compose-queue-exchanges-dlq-plugins-using-docker-compose/</guid>
+      <guid>https://davys.tech/en/posts/rabbitmq-setup-with-compose-queue-exchanges-dlq-plugins-using-docker-compose/</guid>
       <description>&lt;h2 id=&#34;fa-regular-fa-compass-intro&#34;&gt;:(fa-regular fa-compass): Intro&lt;/h2&gt;&#xA;&lt;p&gt;Recently, I needed to run a &lt;strong&gt;RabbitMQ&lt;/strong&gt; instance in my local environment. The challenge was to faithfully replicate the production environment, including the configuration of &lt;strong&gt;virtual hosts, exchanges, queues, routing keys, bindings, users, permissions, and plugins&lt;/strong&gt;, so I could start development without worrying about the infrastructure.&lt;/p&gt;&#xA;&lt;p&gt;To solve this using Docker, I created a &lt;code&gt;docker-compose&lt;/code&gt; file that spins up a RabbitMQ instance already configured with all the resources the application needs.&lt;br&gt;&#xA;This way, I can realistically simulate the production environment and ensure the application works correctly during development.&lt;/p&gt;</description>
     </item>
   </channel>

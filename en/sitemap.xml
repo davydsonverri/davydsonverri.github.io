@@ -2,77 +2,77 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>http://localhost:8080/en/tags/broker/</loc><lastmod>2025-04-17T06:13:33-03:00</lastmod></url><url>
-            <loc>http://localhost:8080/en/</loc><lastmod>2025-04-17T06:13:33-03:00</lastmod><xhtml:link
+            <loc>https://davys.tech/en/tags/broker/</loc><lastmod>2025-04-17T06:13:33-03:00</lastmod></url><url>
+            <loc>https://davys.tech/en/</loc><lastmod>2025-04-17T06:13:33-03:00</lastmod><xhtml:link
                         rel="alternate"
                         hreflang="pt-br"
-                        href="http://localhost:8080/"
+                        href="https://davys.tech/"
                         /><xhtml:link
                     rel="alternate"
                     hreflang="en"
-                    href="http://localhost:8080/en/"
+                    href="https://davys.tech/en/"
                     /></url><url>
-            <loc>http://localhost:8080/en/tags/devops/</loc><lastmod>2025-04-17T06:13:33-03:00</lastmod><xhtml:link
+            <loc>https://davys.tech/en/tags/devops/</loc><lastmod>2025-04-17T06:13:33-03:00</lastmod><xhtml:link
                         rel="alternate"
                         hreflang="pt-br"
-                        href="http://localhost:8080/tags/devops/"
+                        href="https://davys.tech/tags/devops/"
                         /><xhtml:link
                     rel="alternate"
                     hreflang="en"
-                    href="http://localhost:8080/en/tags/devops/"
+                    href="https://davys.tech/en/tags/devops/"
                     /></url><url>
-            <loc>http://localhost:8080/en/tags/docker/</loc><lastmod>2025-04-17T06:13:33-03:00</lastmod><xhtml:link
+            <loc>https://davys.tech/en/tags/docker/</loc><lastmod>2025-04-17T06:13:33-03:00</lastmod><xhtml:link
                         rel="alternate"
                         hreflang="pt-br"
-                        href="http://localhost:8080/tags/docker/"
+                        href="https://davys.tech/tags/docker/"
                         /><xhtml:link
                     rel="alternate"
                     hreflang="en"
-                    href="http://localhost:8080/en/tags/docker/"
+                    href="https://davys.tech/en/tags/docker/"
                     /></url><url>
-            <loc>http://localhost:8080/en/posts/rabbitmq-setup-with-compose-queue-exchanges-dlq-plugins-using-docker-compose/</loc><lastmod>2025-04-17T06:13:33-03:00</lastmod><xhtml:link
+            <loc>https://davys.tech/en/posts/rabbitmq-setup-with-compose-queue-exchanges-dlq-plugins-using-docker-compose/</loc><lastmod>2025-04-17T06:13:33-03:00</lastmod><xhtml:link
                         rel="alternate"
                         hreflang="pt-br"
-                        href="http://localhost:8080/posts/configurar-rabbitmq-docker-compose-filas-exchanges-dlq-plugins/"
+                        href="https://davys.tech/posts/configurar-rabbitmq-docker-compose-filas-exchanges-dlq-plugins/"
                         /><xhtml:link
                     rel="alternate"
                     hreflang="en"
-                    href="http://localhost:8080/en/posts/rabbitmq-setup-with-compose-queue-exchanges-dlq-plugins-using-docker-compose/"
+                    href="https://davys.tech/en/posts/rabbitmq-setup-with-compose-queue-exchanges-dlq-plugins-using-docker-compose/"
                     /></url><url>
-            <loc>http://localhost:8080/en/posts/</loc><lastmod>2025-04-17T06:13:33-03:00</lastmod><xhtml:link
+            <loc>https://davys.tech/en/posts/</loc><lastmod>2025-04-17T06:13:33-03:00</lastmod><xhtml:link
                         rel="alternate"
                         hreflang="pt-br"
-                        href="http://localhost:8080/posts/"
+                        href="https://davys.tech/posts/"
                         /><xhtml:link
                     rel="alternate"
                     hreflang="en"
-                    href="http://localhost:8080/en/posts/"
+                    href="https://davys.tech/en/posts/"
                     /></url><url>
-            <loc>http://localhost:8080/en/tags/queue/</loc><lastmod>2025-04-17T06:13:33-03:00</lastmod></url><url>
-            <loc>http://localhost:8080/en/tags/rabbitmq/</loc><lastmod>2025-04-17T06:13:33-03:00</lastmod><xhtml:link
+            <loc>https://davys.tech/en/tags/queue/</loc><lastmod>2025-04-17T06:13:33-03:00</lastmod></url><url>
+            <loc>https://davys.tech/en/tags/rabbitmq/</loc><lastmod>2025-04-17T06:13:33-03:00</lastmod><xhtml:link
                         rel="alternate"
                         hreflang="pt-br"
-                        href="http://localhost:8080/tags/rabbitmq/"
+                        href="https://davys.tech/tags/rabbitmq/"
                         /><xhtml:link
                     rel="alternate"
                     hreflang="en"
-                    href="http://localhost:8080/en/tags/rabbitmq/"
+                    href="https://davys.tech/en/tags/rabbitmq/"
                     /></url><url>
-            <loc>http://localhost:8080/en/tags/</loc><lastmod>2025-04-17T06:13:33-03:00</lastmod><xhtml:link
+            <loc>https://davys.tech/en/tags/</loc><lastmod>2025-04-17T06:13:33-03:00</lastmod><xhtml:link
                         rel="alternate"
                         hreflang="pt-br"
-                        href="http://localhost:8080/tags/"
+                        href="https://davys.tech/tags/"
                         /><xhtml:link
                     rel="alternate"
                     hreflang="en"
-                    href="http://localhost:8080/en/tags/"
+                    href="https://davys.tech/en/tags/"
                     /></url><url>
-            <loc>http://localhost:8080/en/categories/</loc><xhtml:link
+            <loc>https://davys.tech/en/categories/</loc><xhtml:link
                         rel="alternate"
                         hreflang="pt-br"
-                        href="http://localhost:8080/categories/"
+                        href="https://davys.tech/categories/"
                         /><xhtml:link
                     rel="alternate"
                     hreflang="en"
-                    href="http://localhost:8080/en/categories/"
+                    href="https://davys.tech/en/categories/"
                     /></url></urlset>
